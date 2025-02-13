@@ -1,0 +1,135 @@
+INFO:liger_kernel.transformers.monkey_patch:Applying Liger kernels for model type: llama with kwargs: {}
+/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/transformers/training_args.py:1755: FutureWarning: Using `--dispatch_batches` is deprecated and will be removed in version 4.41 of 🤗 Transformers. Use `--accelerator_config {'dispatch_batches':VALUE} instead
+  warnings.warn(
+/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/oumi/builders/training.py:64: FutureWarning: `tokenizer` is deprecated and removed starting from version 0.16.0 for `SFTTrainer.__init__`. Use `processing_class` instead.
+  trainer = HuggingFaceTrainer(cls(*args, **kwargs, args=hf_args), processor)
+WARNING:accelerate.utils.other:Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Too many dataloader workers: 2 (max is dataset.num_shards=1). Stopping 1 dataloader workers.
+WARNING:datasets.iterable_dataset:Too many dataloader workers: 2 (max is dataset.num_shards=1). Stopping 1 dataloader workers.
+Token indices sequence length is longer than the specified maximum sequence length for this model (4595 > 2048). Running this sequence through the model will result in indexing errors
+  0%|          | 0/1000 [00:00<?, ?it/s]Too many dataloader workers: 2 (max is dataset.num_shards=1). Stopping 1 dataloader workers.
+WARNING:datasets.iterable_dataset:Too many dataloader workers: 2 (max is dataset.num_shards=1). Stopping 1 dataloader workers.
+Token indices sequence length is longer than the specified maximum sequence length for this model (4595 > 2048). Running this sequence through the model will result in indexing errors
+Traceback (most recent call last):
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/bin/oumi", line 8, in <module>
+    sys.exit(run())
+             ^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/oumi/cli/main.py", line 117, in run
+    return app()
+           ^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/typer/main.py", line 340, in __call__
+    raise e
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/typer/main.py", line 323, in __call__
+    return get_command(self)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/click/core.py", line 1161, in __call__
+    return self.main(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/typer/core.py", line 743, in main
+    return _main(
+           ^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/typer/core.py", line 198, in _main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/click/core.py", line 1697, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/click/core.py", line 1443, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/click/core.py", line 788, in invoke
+    return __callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/typer/main.py", line 698, in wrapper
+    return callback(**use_params)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/oumi/cli/train.py", line 63, in train
+    oumi_train(parsed_config)
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/oumi/__init__.py", line 247, in train
+    return oumi.train.train(config, *kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/oumi/train.py", line 332, in train
+    trainer.train(resume_from_checkpoint=checkpoint_location)
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/oumi/core/trainers/hf_trainer.py", line 40, in train
+    self._hf_trainer.train(resume_from_checkpoint=resume_from_checkpoint)
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/transformers/trainer.py", line 2171, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/transformers/trainer.py", line 2531, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/transformers/trainer.py", line 3675, in training_step
+    loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/transformers/trainer.py", line 3731, in compute_loss
+    outputs = model(**inputs)
+              ^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/torch/nn/parallel/data_parallel.py", line 193, in forward
+    outputs = self.parallel_apply(replicas, inputs, module_kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/torch/nn/parallel/data_parallel.py", line 212, in parallel_apply
+    return parallel_apply(
+           ^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/torch/nn/parallel/parallel_apply.py", line 126, in parallel_apply
+    output.reraise()
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/torch/_utils.py", line 715, in reraise
+    raise exception
+torch.OutOfMemoryError: Caught OutOfMemoryError in replica 0 on device 0.
+Original Traceback (most recent call last):
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/torch/nn/parallel/parallel_apply.py", line 96, in _worker
+    output = module(*input, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/liger_kernel/transformers/model/llama.py", line 193, in lce_forward
+    outputs = self.model(
+              ^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/transformers/models/llama/modeling_llama.py", line 592, in forward
+    layer_outputs = decoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/transformers/models/llama/modeling_llama.py", line 351, in forward
+    hidden_states = self.mlp(hidden_states)
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/transformers/models/llama/modeling_llama.py", line 189, in forward
+    down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
+                                                                ^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo_work/EUHPC_A04_051/oumi-dev-env/lib/python3.11/site-packages/torch/nn/modules/linear.py", line 125, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 512.00 MiB. GPU 0 has a total capacity of 63.42 GiB of which 1.20 GiB is free. Including non-PyTorch memory, this process has 62.22 GiB memory in use. 60.25 GiB allowed; Of the allocated memory 59.76 GiB is allocated by PyTorch, and 78.23 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+  0%|          | 0/1000 [00:29<?, ?it/s]

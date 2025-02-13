@@ -1,0 +1,167 @@
+data:
+  train:
+    datasets:
+    - dataset_name: cerebras/SlimPajama-627B
+      dataset_path: null
+      subset: null
+      split: train
+      dataset_kwargs:
+        seq_length: 2048
+      sample_count: null
+      mixture_proportion: null
+      shuffle: false
+      seed: null
+      shuffle_buffer_size: 1000
+      trust_remote_code: false
+      transform_num_workers: null
+    collator_name: null
+    pack: true
+    stream: true
+    target_col: text
+    mixture_strategy: first_exhausted
+    seed: null
+    use_async_dataset: true
+    use_torchdata: null
+  test:
+    datasets: []
+    collator_name: null
+    pack: false
+    stream: false
+    target_col: null
+    mixture_strategy: first_exhausted
+    seed: null
+    use_async_dataset: false
+    use_torchdata: null
+  validation:
+    datasets: []
+    collator_name: null
+    pack: false
+    stream: false
+    target_col: null
+    mixture_strategy: first_exhausted
+    seed: null
+    use_async_dataset: false
+    use_torchdata: null
+model:
+  model_name: meta-llama/Llama-3.2-1B
+  adapter_model: null
+  tokenizer_name: null
+  tokenizer_pad_token: null
+  tokenizer_kwargs: {}
+  model_max_length: 2048
+  load_pretrained_weights: false
+  trust_remote_code: true
+  torch_dtype_str: bfloat16
+  compile: false
+  chat_template: chat_ml
+  attn_implementation: sdpa
+  device_map: auto
+  model_kwargs: {}
+  enable_liger_kernel: true
+  shard_for_eval: false
+  freeze_layers: []
+training:
+  use_peft: false
+  trainer_type: TRL_SFT
+  enable_gradient_checkpointing: true
+  gradient_checkpointing_kwargs:
+    use_reentrant: false
+  output_dir: output/pt
+  per_device_train_batch_size: 16
+  per_device_eval_batch_size: 8
+  gradient_accumulation_steps: 1
+  max_steps: 1000
+  num_train_epochs: 3
+  save_epoch: false
+  save_steps: 500
+  save_final_model: true
+  seed: 123
+  run_name: null
+  metrics_function: null
+  log_level: info
+  dep_log_level: warning
+  enable_wandb: false
+  enable_tensorboard: true
+  logging_strategy: steps
+  logging_dir: null
+  logging_steps: 10
+  logging_first_step: false
+  eval_strategy: 'no'
+  eval_steps: 500
+  learning_rate: 5.0e-05
+  lr_scheduler_type: linear
+  lr_scheduler_kwargs: {}
+  warmup_ratio: null
+  warmup_steps: null
+  optimizer: adamw_torch_fused
+  weight_decay: 0.0
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  adam_epsilon: 1.0e-08
+  sgd_momentum: 0.0
+  mixed_precision_dtype: NONE
+  compile: true
+  include_performance_metrics: true
+  include_alternative_mfu_metrics: false
+  log_model_summary: false
+  resume_from_checkpoint: null
+  try_resume_from_last_checkpoint: false
+  dataloader_num_workers: 2
+  dataloader_prefetch_factor: 32
+  dataloader_main_process_only: false
+  ddp_find_unused_parameters: false
+  max_grad_norm: 1.0
+  trainer_kwargs:
+    max_seq_length: 2048
+  profiler:
+    save_dir: null
+    enable_cpu_profiling: false
+    enable_cuda_profiling: false
+    record_shapes: false
+    profile_memory: false
+    with_stack: false
+    with_flops: false
+    with_modules: false
+    row_limit: 50
+    schedule:
+      enable_schedule: false
+      wait: 0
+      warmup: 1
+      active: 3
+      repeat: 1
+      skip_first: 1
+  telemetry:
+    telemetry_dir: telemetry
+    collect_telemetry_for_all_ranks: false
+    track_gpu_temperature: false
+  empty_device_cache_steps: 1
+  nccl_default_timeout_minutes: null
+peft:
+  lora_r: 8
+  lora_alpha: 8
+  lora_dropout: 0.0
+  lora_target_modules: null
+  lora_modules_to_save: null
+  lora_bias: none
+  lora_init_weights: DEFAULT
+  lora_task_type: CAUSAL_LM
+  q_lora: false
+  q_lora_bits: 4
+  bnb_4bit_quant_type: fp4
+  use_bnb_nested_quant: false
+  bnb_4bit_quant_storage: uint8
+  bnb_4bit_compute_dtype: float32
+  peft_save_mode: ADAPTER_ONLY
+fsdp:
+  enable_fsdp: true
+  sharding_strategy: HYBRID_SHARD
+  cpu_offload: false
+  mixed_precision: null
+  backward_prefetch: BACKWARD_PRE
+  forward_prefetch: true
+  use_orig_params: null
+  state_dict_type: FULL_STATE_DICT
+  auto_wrap_policy: TRANSFORMER_BASED_WRAP
+  min_num_params: 100000
+  transformer_layer_cls: LlamaDecoderLayer
+  sync_module_states: true

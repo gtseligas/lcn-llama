@@ -1,0 +1,5 @@
+CPU cores: 32 CUDA devices: 4
+device(0)='NVIDIA A100-SXM-64GB' Capability: (8, 0) Memory: [Total: 63.42GiB Free: 62.36GiB Allocated: 0.0GiB Cached: 0.0GiB]
+device(1)='NVIDIA A100-SXM-64GB' Capability: (8, 0) Memory: [Total: 63.42GiB Free: 62.36GiB Allocated: 0.0GiB Cached: 0.0GiB]
+device(2)='NVIDIA A100-SXM-64GB' Capability: (8, 0) Memory: [Total: 63.42GiB Free: 62.36GiB Allocated: 0.0GiB Cached: 0.0GiB]
+device(3)='NVIDIA A100-SXM-64GB' Capability: (8, 0) Memory: [Total: 63.42GiB Free: 62.36GiB Allocated: 0.0GiB Cached: 0.0GiB]
